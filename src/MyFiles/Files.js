@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Delete from '../delete.png';
+import {Button} from 'react-bootstrap';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +42,7 @@ export default function SimpleTable() {
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Date</TableCell>
             <TableCell align="right"> </TableCell>
+            <TableCell > Share File </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,9 +54,12 @@ export default function SimpleTable() {
               <TableCell align="right">{row.type}</TableCell>
               <TableCell align="right">{row.date}</TableCell>
               <TableCell component="th" scope="row" className = {classes.tableCell} >
-                <div>
+                <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
                     <img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/>
                 </div>
+              </TableCell>
+              <TableCell component="th" scope="row" className = {classes.tableCell} >
+                  <Button variant="success">Share</Button>
               </TableCell>
             </TableRow>
           ))}

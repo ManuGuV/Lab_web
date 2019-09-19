@@ -24,7 +24,7 @@ import {Button} from 'react-bootstrap';
                     />
                     </FormGroup>
                 </div>
-                <Button variant="success" style = {{marginLeft: 'auto'}}>Upload</Button>
+                <Button variant="success" style = {{marginLeft: 'auto'}}>Share</Button>
             </div>
         )
     }
