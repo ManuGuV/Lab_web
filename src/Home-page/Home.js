@@ -10,7 +10,6 @@ function Home() {
       <NavBar></NavBar>
       <Menu></Menu>
       <Image></Image>
-      <DnD></DnD>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {Button} from 'react-bootstrap';
+import DnD from './Dropzone';
 
  class Image extends React.Component {
 
@@ -11,8 +12,9 @@ import {Button} from 'react-bootstrap';
 
         return (
             <div>
-                <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <img src={upload} alt="upload" style={{height:'20%', width: '20%', paddingTop: '15px'}} />
+                <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', paddingTop: '15px'}}>
+                    <DnD></DnD>
+                    <h2>Drag your file here!</h2>
                 </div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
                     <FormGroup row>
