@@ -12,7 +12,7 @@ import {Button} from 'react-bootstrap';
         return (
             <div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <img src={upload} alt="upload" style={{height:'20%', width: '20%'}} />
+                    <img src={upload} alt="upload" style={{height:'20%', width: '20%', paddingTop: '15px'}} />
                 </div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
                     <FormGroup row>

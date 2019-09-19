@@ -8,13 +8,13 @@ import {ButtonGroup, ToggleButton} from 'react-bootstrap';
         return (
             <div className="d-flex flex-column">
             <ButtonGroup toggle className="mt-3">
-                <ToggleButton type="radio" name="radio" defaultChecked value="1">
+                <ToggleButton variant="info" type="radio" name="radio" defaultChecked value="1">
                 Photo
                 </ToggleButton>
-                <ToggleButton type="radio" name="radio" value="2">
+                <ToggleButton variant="info" type="radio" name="radio" value="2">
                 Document
                 </ToggleButton>
-                <ToggleButton type="radio" name="radio" value="3">
+                <ToggleButton variant="info" type="radio" name="radio" value="3">
                 Text
                 </ToggleButton>
             </ButtonGroup>

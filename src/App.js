@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Signup></Signup>
+      <Home></Home>
     </div>
   );
 }
