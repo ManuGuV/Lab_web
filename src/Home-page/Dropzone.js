@@ -13,10 +13,11 @@ class MyDropzone extends Component {
 
   render() {
     return (
+      <div>
       <Dropzone onDrop={files => console.log(files)}>
         {({ getRootProps, getInputProps }) => (
           <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', backgroundImage: 'URL("https://elementstark.com/woocommerce-extension-demos/wp-content/uploads/sites/2/2016/12/upload.png")', backgroundSize: '150px', height: '150px', width: '150px', margin: '0 auto', backgroundRepeat: 'no-repeat'}}>
-            <div
+            <div style={{height: '150px', width: '150px'}}
               {...getRootProps({
                 className: 'dropzone',
                 onDrop: event => event.stopPropagation()
@@ -28,6 +29,10 @@ class MyDropzone extends Component {
           </div>
         )}
       </Dropzone>
+      </div>
+      
+      
+      
     );
   }
 }

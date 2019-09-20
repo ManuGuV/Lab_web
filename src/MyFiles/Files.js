@@ -9,6 +9,8 @@ import Paper from '@material-ui/core/Paper';
 import Delete from '../delete.png';
 import {Button} from 'react-bootstrap';
 
+var num = 0;
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -20,18 +22,28 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function eliminar(x){
+  num = x;
+  if (num==1){
+    console.log(num);
+  }
+  
+}
+
 function createData(name, type, date) {
   return { name, type, date };
 }
 
 const rows = [
-  createData('Imagen prueba', 'imagen', '24/10/2019'),
+  createData('Imagen prueba', 'jpg', '24/10/2019'),
   createData('Texto prueba', 'texto', '24/10/2019'),
   createData('Documento prueba', 'documento', '24/10/2019'),
 ];
 
 export default function SimpleTable() {
   const classes = useStyles();
+
+
 
   return (
     <Paper className={classes.root}>
@@ -55,11 +67,11 @@ export default function SimpleTable() {
               <TableCell align="right">{row.date}</TableCell>
               <TableCell component="th" scope="row" className = {classes.tableCell} >
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/>
+                    <Button onClick={() => alert('File deleted')}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
                 </div>
               </TableCell>
               <TableCell component="th" scope="row" className = {classes.tableCell} >
-                  <Button variant="success">Share</Button>
+                  <Button onClick={() => alert('File Shared')} variant="success">Share</Button>
               </TableCell>
             </TableRow>
           ))}

@@ -26,7 +26,7 @@ import DnD from './Dropzone';
                     />
                     </FormGroup>
                 </div>
-                <Button variant="success" style = {{marginLeft: 'auto'}}>Share</Button>
+                <Button onClick={() => alert('File Shared')} variant="success" style = {{marginLeft: 'auto'}}>Share</Button>
             </div>
         )
     }
