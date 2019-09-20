@@ -14,7 +14,7 @@ import DnD from './Dropzone';
             <div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', paddingTop: '15px'}}>
                     <DnD></DnD>
-                    <h2>Drag your file here!</h2>
+                    <h2>Click the image to upload your file here!</h2>
                 </div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
                     <FormGroup row>
