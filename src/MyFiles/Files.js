@@ -8,75 +8,75 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Delete from '../delete.png';
 import {Button} from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-var num = 0;
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-  },
-}));
-
-function eliminar(x){
-  num = x;
-  if (num==1){
-    console.log(num);
+class fileManager extends React.Component {
+  constructor(props){
+    super(props);
   }
+
+  useStyles = makeStyles(theme => ({
+    root: {
+      width: '100%',
+      marginTop: theme.spacing(3),
+      overflowX: 'auto',
+    },
+    table: {
+      minWidth: 650,
+    },
+  }));
   
-}
 
-function createData(name, type, date) {
-  return { name, type, date };
-}
+  render() {
+    console.log("state: %j", this.props.state.fileArr);
+    this.files = this.props.state.fileArr;
+    
 
-const rows = [
-  createData('Imagen prueba', 'jpg', '24/10/2019'),
-  createData('Texto prueba', 'texto', '24/10/2019'),
-  createData('Documento prueba', 'documento', '24/10/2019'),
-];
-
-export default function SimpleTable() {
-  const classes = useStyles();
-
-
-
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Type</TableCell>
-            <TableCell align="right">Date</TableCell>
-            <TableCell align="right"> </TableCell>
-            <TableCell > Share File </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.type}</TableCell>
-              <TableCell align="right">{row.date}</TableCell>
-              <TableCell component="th" scope="row" className = {classes.tableCell} >
-                <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <Button onClick={() => alert('File deleted')}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
-                </div>
-              </TableCell>
-              <TableCell component="th" scope="row" className = {classes.tableCell} >
-                  <Button onClick={() => alert('File Shared')} variant="success">Share</Button>
-              </TableCell>
+    return (
+      <Paper >
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="right">Type</TableCell>
+              <TableCell align="right">Date</TableCell>
+              <TableCell align="right"> </TableCell>
+              <TableCell > Share File </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-  );
+          </TableHead>
+          <TableBody>
+            {this.files.map(files => (
+              <TableRow>
+                <TableCell component="th" scope="row">{files.name}</TableCell>
+                <TableCell align="right">{files.type}</TableCell>
+                <TableCell align="right">{files.date}</TableCell>
+                <TableCell component="th" scope="row">
+                  <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
+                      <Button onClick={() => alert('File deleted')}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
+                  </div>
+                </TableCell>
+                <TableCell component="th" scope="row">
+                    <Button onClick={() => alert('File Shared')} variant="success">Share</Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+    );
+  }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    state: state.rootReducer,
+  }
+}
+
+const mapDispatchToProps = {
+  /*getContact,
+  deleteContact,
+  setCurrentContact,*/
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(fileManager);

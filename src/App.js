@@ -16,7 +16,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div>
-          <Signup></Signup>
+          <MyFiles></MyFiles>
         </div>
       </BrowserRouter>
     </Provider>
