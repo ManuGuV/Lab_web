@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import Home from './Home-page/Home';
 import Login from './Login/Login';
 import MyFiles from './MyFiles/MyFiles';
@@ -16,7 +15,11 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div>
-          <MyFiles></MyFiles>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/Login' component={Login} />
+          <Route exact path='/MyFiles' component={MyFiles} />
+          <Route exact path='/QR' component={QR} />
+          <Route exact path='/Signup' component={Signup} />
         </div>
       </BrowserRouter>
     </Provider>

@@ -28,7 +28,7 @@ class fileManager extends React.Component {
   
 
   render() {
-    console.log("state: %j", this.props.state.fileArr);
+    
     this.files = this.props.state.fileArr;
     
 
