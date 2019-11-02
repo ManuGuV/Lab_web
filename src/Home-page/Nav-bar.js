@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
  class NavBar extends React.Component {
@@ -11,8 +12,8 @@ import { Link } from 'react-router-dom';
             <div>
                 <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Square It</Navbar.Brand>
-                    <Button variant="outline-success" style = {{marginLeft: 'auto'}}>Signup</Button>
-                    <Button component={ Link } to="/MyFiles" variant="outline-success" style = {{marginLeft: '5px'}}>Login</Button>
+                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: 'auto'}} to="/Signup">Signup</Link>
+                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: '5px'}} to="/Login">Login</Link>
                 </Navbar>
              </div>
         )

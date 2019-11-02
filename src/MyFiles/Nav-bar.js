@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navbar, Button} from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 
  class NavBar extends React.Component {
 
@@ -10,7 +10,7 @@ import {Navbar, Button} from 'react-bootstrap';
             <div>
                 <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Square It</Navbar.Brand>
-                    <Button variant="contained" style = {{marginLeft: 'auto'}}>Log out</Button>
+                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: 'auto'}} to="/">Logout</Link>
                 </Navbar>
              </div>
         )

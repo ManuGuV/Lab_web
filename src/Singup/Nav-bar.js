@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { browserHistory } from "react-router";
 
 
@@ -15,7 +16,7 @@ import { browserHistory } from "react-router";
             <div>
                 <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Square It</Navbar.Brand>
-                    <Button variant="contained" style = {{marginLeft: 'auto'}} onClick={() => { document.location.href = "details.html"; }}>Back</Button>
+                    <Link className="btn" variant="outline-success" style = {{marginLeft: 'auto'}} to="/">Back</Link>
                 </Navbar>
              </div>
         )
