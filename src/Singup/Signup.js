@@ -64,7 +64,7 @@ class Signup extends React.Component {
                     </div>
                 </div>
                 
-                <Button style={{float: 'right', marginRight: '3%'}} variant="contained" color="primary">Sign Up</Button>
+                <Link className="btn btn-primary" variant="contained" style={{float: 'right', marginRight: '3%'}} to="/">Sign Up</Link>
               </Paper>
             </div>
           );

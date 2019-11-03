@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props){
@@ -36,7 +37,8 @@ class Login extends React.Component {
           <div style={{display: 'flex', flexDirection: 'column'}}>
               <Input value={''} className={this.useStyles.formElement} id="component-simple" placeholder="User"/>
               <Input value={''} className={this.useStyles.formElement} id="component-simple" placeholder="Password"/>
-              <Button variant="contained" color="primary">Sign In</Button>
+              
+              <Link className="btn btn-primary" variant="contained" to="/MyFiles">Sign In</Link>
           </div>
         </Paper>
       </div>
