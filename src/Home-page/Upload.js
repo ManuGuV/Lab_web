@@ -8,6 +8,7 @@ import DnD from './Dropzone';
 import File from '../classes/Files';
 import { connect } from 'react-redux';
 import addFile from '../Actions/addFile';
+import Paper from '@material-ui/core/Paper';
 
  class Image extends React.Component {
 
@@ -21,6 +22,7 @@ import addFile from '../Actions/addFile';
 
         return (
             <div>
+                <Paper className="p-5">
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', paddingTop: '15px'}}>
                     <DnD></DnD>
                     <h2>Click the image to upload your file here!</h2>
@@ -36,7 +38,8 @@ import addFile from '../Actions/addFile';
                     </FormGroup>
                 </div>
                 <Button onClick={() => alert('File Shared')} variant="success" style = {{marginLeft: 'auto'}}>Share</Button>
-                <Button onClick={() => this.addFile("newFile", "newType", "03/10/2019", "newPath")}>Prueba</Button>
+                <Button onClick={() => this.addFile("newFile", "newType", "03/10/2019", "newPath")}>Agregar Archivos</Button>
+                </Paper>
             </div>
         )
     }
