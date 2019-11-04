@@ -1,5 +1,6 @@
 class File {
-    constructor (name, type, date, path){
+    constructor (id, name, type, date, path){
+        this.id = id;
         this.name = name;
         this.type = type;
         this.date = date;

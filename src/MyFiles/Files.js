@@ -26,8 +26,8 @@ class fileManager extends React.Component {
     super(props);
   } 
   
-  deleteFile(name) {
-    this.props.deleteFile(name);
+  deleteFile(id) {
+    this.props.deleteFile(id);
     this.setState({ state: this.state });
   }
 
@@ -56,7 +56,7 @@ class fileManager extends React.Component {
                 <TableCell align="right">{files.date}</TableCell>
                 <TableCell component="th" scope="row">
                   <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                      <Button onClick={() => this.deleteFile(files.name)}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
+                      <Button onClick={() => this.deleteFile(files.id)}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
                   </div>
                 </TableCell>
                 <TableCell component="th" scope="row">
