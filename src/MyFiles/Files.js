@@ -9,23 +9,27 @@ import Paper from '@material-ui/core/Paper';
 import Delete from '../delete.png';
 import {Button} from 'react-bootstrap';
 import { connect } from 'react-redux';
+import deleteFile from '../Actions/deleteFile';
+
+/*const root = {
+  width: '100%',
+  marginTop: theme.spacing(3),
+  overflowX: 'auto',
+};
+
+const table = {
+  minWidth: 650,
+};*/
 
 class fileManager extends React.Component {
   constructor(props){
     super(props);
-  }
-
-  useStyles = makeStyles(theme => ({
-    root: {
-      width: '100%',
-      marginTop: theme.spacing(3),
-      overflowX: 'auto',
-    },
-    table: {
-      minWidth: 650,
-    },
-  }));
+  } 
   
+  deleteFile(name) {
+    this.props.deleteFile(name);
+    this.setState({ state: this.state });
+  }
 
   render() {
     
@@ -52,7 +56,7 @@ class fileManager extends React.Component {
                 <TableCell align="right">{files.date}</TableCell>
                 <TableCell component="th" scope="row">
                   <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                      <Button onClick={() => alert('File deleted')}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
+                      <Button onClick={() => this.deleteFile(files.name)}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
                   </div>
                 </TableCell>
                 <TableCell component="th" scope="row">
@@ -74,9 +78,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  /*getContact,
-  deleteContact,
-  setCurrentContact,*/
+  deleteFile,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(fileManager);

@@ -7,60 +7,53 @@ import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+const signupCard = {
+    position: 'absolute',
+    left: '15%',
+    top: '15%',
+    padding: '5%',
+    width: '70%'
+};
 
+const formElement = {
+    marginBottom: '1%',
+};
+
+const dataColumn = {
+    margin: '3%',
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%'
+};
 
 class Signup extends React.Component {
-
-    useStyles = makeStyles (theme => ({
-        signupCard : {
-            position: 'absolute',
-            left: '15%',
-            top: '15%',
-            padding: '5%',
-            width: '70%'
-        },
-        formControl: {
-            margin: theme.spacing(1),
-        },
-        formElement: {
-            marginBottom: theme.spacing(3)
-        },
-    
-        dataColumn : {
-            margin: '3%',
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%'
-        }
-    
-    }));
 
     render () {
         console.log("state: %j", this.props.state.fileArr);
         return (
             <div className="Signup">
               <NavBar></NavBar>
-              <Paper className={this.useStyles.signupCard}>
-                <h4 className={this.useStyles.formElement}>Sign Up</h4>
+              <Paper style={signupCard}>
+                <h4 style={formElement}>Sign Up</h4>
         
                 <h5 style={{marginLeft: '3%', marginTop: '3%'}}>Personal Data</h5>
         
                 <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <div className={this.useStyles.dataColumn}>
-                        <Input className={this.useStyles.formElement} id="component-simple" placeholder="Name"/>
-                        <Input className={this.useStyles.formElement} id="component-simple" placeholder="email"/>
+                    <div style={dataColumn}>
+                        <Input style={formElement} id="component-simple" placeholder="Name"/>
+                        <Input style={formElement} id="component-simple" placeholder="email"/>
                     </div>
-                    <div className={this.useStyles.dataColumn}>
-                        <Input className={this.useStyles.formElement} id="component-simple" placeholder="Last Name"/>
+                    <div style={dataColumn}>
+                        <Input style={formElement} id="component-simple" placeholder="Last Name"/>
                     </div>
                 </div>
         
                 <h5 style={{marginLeft: '3%', marginTop: '3%'}}>Password</h5>
         
                 <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <div className={this.useStyles.dataColumn}>
-                        <Input className={this.useStyles.formElement} type="password" id="component-simple" placeholder="New Password"/>
-                        <Input className={this.useStyles.formElement} type="password" id="component-simple" placeholder="Confirm Password"/>
+                    <div style={dataColumn}>
+                        <Input style={formElement} type="password" id="component-simple" placeholder="New Password"/>
+                        <Input style={formElement} type="password" id="component-simple" placeholder="Confirm Password"/>
                     </div>
                 </div>
                 

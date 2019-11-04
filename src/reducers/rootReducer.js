@@ -1,4 +1,4 @@
-    import Data from '../classes/Data';
+import Data from '../classes/Data';
 import User from '../classes/User';
 import File from '../classes/Files';
 
@@ -18,6 +18,10 @@ var data = new Data(fileArr, userArr);
 
 function rootReducer(state = data, {type, payload}) {
     switch(type) {
+        case 'deleteFile': 
+            console.log("Borrando archivo");
+            state.fileArr = state.fileArr.filter(item => item.name !== payload);
+            return state;
         default:
             console.log('entró al default');
             return state;
