@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Delete from '../delete.png';
 import {Button} from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { RadialChart } from 'react-vis';
 import deleteFile from '../Actions/deleteFile';
 
 /*const root = {
@@ -66,6 +67,7 @@ class fileManager extends React.Component {
             ))}
           </TableBody>
         </Table>
+        <RadialChart data={[{angle:1,label:'hola'},{angle:2},{angle:5}]} width={300} height={300} showLabels={true}/>
       </Paper>
     );
   }
