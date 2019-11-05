@@ -11,6 +11,7 @@ import {Button} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { RadialChart } from 'react-vis';
 import deleteFile from '../Actions/deleteFile';
+import getGraph from '../Actions/getGraph';
 
 /*const root = {
   width: '100%',
@@ -29,12 +30,19 @@ class fileManager extends React.Component {
   
   deleteFile(id) {
     this.props.deleteFile(id);
+    this.props.getGraph();
     this.setState({ state: this.state });
+  }
+
+  getGraph(){
+    this.props.getGraph();
   }
 
   render() {
     
     this.files = this.props.state.fileArr;
+    //this.getGraph();
+    console.log(this.props.state.countArr);
     
 
     return (
@@ -67,7 +75,7 @@ class fileManager extends React.Component {
             ))}
           </TableBody>
         </Table>
-        <RadialChart data={[{angle:1,label:'hola'},{angle:2},{angle:5}]} width={300} height={300} showLabels={true}/>
+        <RadialChart data={[{angle:this.props.state.countArr[0],label:'image'},{angle:this.props.state.countArr[1],label:'text'},{angle:this.props.state.countArr[2],label:'document'}]} width={300} height={300} showLabels={true}/>
       </Paper>
     );
   }
@@ -81,6 +89,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   deleteFile,
+  getGraph,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(fileManager);
