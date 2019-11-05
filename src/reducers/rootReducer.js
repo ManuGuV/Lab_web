@@ -26,6 +26,10 @@ function rootReducer(state = data, {type, payload}) {
             console.log("Agregando archivo");
             state.fileArr.push(payload);
             return state;
+        case 'addUser':
+            console.log("Agregando usuario");
+            state.userArr.push(payload);
+            return state;
         default:
             console.log('entró al default');
             return state;

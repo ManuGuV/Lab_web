@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import addUser from '../Actions/addUser';
+import User from '../classes/User';
 
 const signupCard = {
     position: 'absolute',
@@ -26,7 +28,22 @@ const dataColumn = {
     width: '100%'
 };
 
+const toHome = false;
+
 class Signup extends React.Component {
+
+    addUser(name, lastName, password, passwordConfirm, email) {
+
+        if(password == passwordConfirm) {
+            var newUser = new User(name, lastName, password, email);
+            this.props.addUser(newUser);
+            this.setState({ state: this.state });
+            alert("User created");
+            console.log(this.props.state.userArr);
+        }else{
+            alert("Password does not match");
+        } 
+    }
 
     render () {
         console.log("state: %j", this.props.state.fileArr);
@@ -40,11 +57,11 @@ class Signup extends React.Component {
         
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <div style={dataColumn}>
-                        <Input style={formElement} id="component-simple" placeholder="Name"/>
-                        <Input style={formElement} id="component-simple" placeholder="email"/>
+                        <Input style={formElement} id="name" placeholder="Name"/>
+                        <Input style={formElement} id="email" placeholder="email"/>
                     </div>
                     <div style={dataColumn}>
-                        <Input style={formElement} id="component-simple" placeholder="Last Name"/>
+                        <Input style={formElement} id="lastName" placeholder="Last Name"/>
                     </div>
                 </div>
         
@@ -52,12 +69,12 @@ class Signup extends React.Component {
         
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <div style={dataColumn}>
-                        <Input style={formElement} type="password" id="component-simple" placeholder="New Password"/>
-                        <Input style={formElement} type="password" id="component-simple" placeholder="Confirm Password"/>
+                        <Input style={formElement} type="password" id="password" placeholder="New Password"/>
+                        <Input style={formElement} type="password" id="confirmPassword" placeholder="Confirm Password"/>
                     </div>
                 </div>
                 
-                <Link className="btn btn-primary" variant="contained" style={{float: 'right', marginRight: '3%'}} to="/">Sign Up</Link>
+                <Link className="btn btn-primary" variant="contained" style={{float: 'right', marginRight: '3%'}} to="/" onClick={() => this.addUser(document.getElementById("name").value, document.getElementById("lastName").value, document.getElementById("password").value, document.getElementById("confirmPassword").value, document.getElementById("email").value)}>Sign Up</Link>
               </Paper>
             </div>
           );
@@ -71,9 +88,7 @@ const mapStateToProps = (state) => {
   }
   
   const mapDispatchToProps = {
-    /*getContact,
-    deleteContact,
-    setCurrentContact,*/
+    addUser
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(Signup);
