@@ -9,8 +9,10 @@ import Files from '../classes/Files';
 class MyDropzone extends Component {
   filename = null;
 
-  constructor(droppedFile){
-    super(droppedFile);
+  constructor(droppedFile, dropped){
+    super(droppedFile, dropped);
+
+    dropped = false;
   }
 
   onDrop = (acceptedFiles) => {
@@ -41,6 +43,9 @@ class MyDropzone extends Component {
 
     this.props.addFile(file);
     this.setState({ state: this.state });
+
+    document.getElementById("droppedStatus").innerHTML = path;
+    this.dropped = true;
   }
 
   render() {
@@ -52,7 +57,8 @@ class MyDropzone extends Component {
             <div style={{height: '150px', width: '150px'}}
               {...getRootProps({
                 className: 'dropzone',
-                onDrop: event => event.stopPropagation()
+                onDrop: event => event.stopPropagation(),
+                onDrop: event => event.preventDefault()
               })}
             >
               <input {...getInputProps()}/>
@@ -61,6 +67,7 @@ class MyDropzone extends Component {
           </div>
         )}
       </Dropzone>
+      <p id="droppedStatus">No file</p>
       </div>
     );
   }
