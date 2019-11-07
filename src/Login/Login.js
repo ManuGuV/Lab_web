@@ -9,8 +9,9 @@ import { Link } from 'react-router-dom';
 
 const loginCard = {
   position: 'absolute',
-  left: '40%',
-  top: '30%',
+  left: '10%',
+  right: '10%',
+  top: '15%',
   padding: '5%'
 };
 
