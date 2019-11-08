@@ -8,6 +8,8 @@ import rootReducer from './reducers/rootReducer';
 import { connect } from 'react-redux';
 import Files from './MyFiles/Files';
 import { Provider } from 'react-redux';
+import MyFiles from './MyFiles/MyFiles';
+import { render } from '@testing-library/react';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -23,11 +25,9 @@ test('Fake Test', () => {
   const navBarComponent = TestRenderer.create(<NavBar />);
   expect(navBarComponent).toMatchSnapshot();
 });*/
-
-test('file_array_size', () => {
-  const filesComponent = TestRenderer.create(<Provider><Files/></Provider>);  
-  const  fileArr = filesComponent.props.files;
-  expect(fileArr).toHaveLength(3);
+it('renders welcome message', () => {
+  const { Files } = render(<MyFiles />);
+  expect(getByText('Square It')).toBeInTheDocument();
 });
 
 const mapStateToProps = (state) => {

@@ -65,7 +65,7 @@ function rootReducer(state = data, {type, payload}) {
             console.log("Updating data for chart");
             state.countArr[0] = state.fileArr.filter(File => File.type == ".jpg" || File.type == ".png").length;
             state.countArr[1] = state.fileArr.filter(File => File.type == ".txt").length;
-            state.countArr[2] = state.fileArr.filter(File => File.type == ".doc" || File.type == ".docx").length;
+            state.countArr[2] = state.fileArr.filter(File => File.type == ".doc" || File.type == ".docx" || File.type == ".pdf").length;
             return state
         default:
             console.log('entró al default');
