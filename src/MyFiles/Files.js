@@ -66,11 +66,11 @@ class fileManager extends React.Component {
                 <TableCell align="right">{files.date}</TableCell>
                 <TableCell component="th" scope="row">
                   <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                      <Button onClick={() => this.deleteFile(files.id)}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
+                  <Button variant="outline-danger" onClick={() => this.deleteFile(files.id)}><img src={Delete} alt="delete" style={{height:'5%', width: '20px'}}/></Button>
                   </div>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    <Link className="btn btn-success" variant="contained" to="/QR">Share</Link>
+                    <Link className="btn btn-success" variant="outline" to="/QR">Share</Link>
                 </TableCell>
               </TableRow>
             ))}
