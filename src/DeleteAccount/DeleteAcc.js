@@ -29,6 +29,10 @@ class DeleteAcc extends React.Component {
     super(props);
   }
 
+  deleteAcc() {
+    console.log("deleted");
+  }
+
   render () {
     return (
       <div className="Login">
@@ -39,7 +43,7 @@ class DeleteAcc extends React.Component {
               <Input value={''} style={formElement} id="component-simple" placeholder="User"/>
               <Input value={''} style={formElement} id="component-simple" placeholder="Password"/>
               
-              <Link className="btn btn-danger" variant="contained" to="/">DELETE ACCOUNT</Link>
+              <Link className="btn btn-danger" variant="contained" to="/" onClick={() => this.deleteAcc()}>DELETE ACCOUNT</Link>
           </div>
         </Paper>
       </div>
