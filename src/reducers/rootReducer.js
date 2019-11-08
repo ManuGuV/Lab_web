@@ -6,7 +6,7 @@ var userArr = [];
 var fileArr = [];
 var countArr = [1,1,1];
 
-userArr.push(new User("Saúl Enrique", "Labra", "1234"));
+userArr.push(new User("Saúl Enrique", "Labra", "1234", "quique"));
 userArr.push(new User("Rodrigo", "Garcia", "5678"));
 userArr.push(new User("Manuel", "Guadarrama", "abcd"));
 userArr.push(new User("Emilio", "Hernandez", "efghi"));
@@ -31,6 +31,18 @@ function rootReducer(state = data, {type, payload}) {
         case 'addUser':
             console.log("Agregando usuario");
             state.userArr.push(payload);
+            return state;
+        case 'deleteUser':
+            console.log("Eliminando usuario");
+            for(var i=0; i< state.userArr.length; i++)
+            {
+                
+                if(state.userArr[i].password == payload[1] && state.userArr[i].email == payload[0])
+                {
+                    state.userArr.splice(i,1);
+                }
+            }
+            console.log(state.userArr);
             return state;
         case 'getGraph':
             console.log("Updating data for chart");

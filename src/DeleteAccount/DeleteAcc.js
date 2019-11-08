@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import deleteUser from '../Actions/deleteUser';
 
 const loginCard = {
   position: 'absolute',
@@ -29,8 +30,12 @@ class DeleteAcc extends React.Component {
     super(props);
   }
 
-  deleteAcc() {
-    console.log("deleted");
+  deleteAcc(user, pass) {
+    var payload = [];
+    payload[0] = user;
+    payload[1] = pass;
+    this.props.deleteUser(payload);
+    console.log(payload);
   }
 
   render () {
@@ -40,10 +45,10 @@ class DeleteAcc extends React.Component {
         <Paper style={loginCard}>
           <h4 style={formElement}>You are about to delete your account!</h4>
           <div style={{display: 'flex', flexDirection: 'column'}}>
-              <Input value={''} style={formElement} id="component-simple" placeholder="User"/>
-              <Input value={''} style={formElement} id="component-simple" placeholder="Password"/>
+              <Input style={formElement} id="user" placeholder="User"/>
+              <Input style={formElement} id="password" placeholder="Password"/>
               
-              <Link className="btn btn-danger" variant="contained" to="/" onClick={() => this.deleteAcc()}>DELETE ACCOUNT</Link>
+              <Link className="btn btn-danger" variant="contained" to="/" onClick={() => this.deleteAcc(document.getElementById("user").value, document.getElementById("password").value)}>DELETE ACCOUNT</Link>
           </div>
         </Paper>
       </div>
@@ -59,9 +64,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  /*getContact,
-  deleteContact,
-  setCurrentContact,*/
+  deleteUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteAcc);
