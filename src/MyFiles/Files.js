@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { RadialChart } from 'react-vis';
 import deleteFile from '../Actions/deleteFile';
 import getGraph from '../Actions/getGraph';
+import { Link } from 'react-router-dom';
 
 /*const root = {
   width: '100%',
@@ -69,7 +70,7 @@ class fileManager extends React.Component {
                   </div>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    <Button onClick={() => alert('File Shared')} variant="success">Share</Button>
+                    <Link className="btn btn-success" variant="contained" to="/QR">Share</Link>
                 </TableCell>
               </TableRow>
             ))}
