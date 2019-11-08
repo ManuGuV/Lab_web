@@ -14,7 +14,6 @@ function Home() {
         <Col/>
         <Col md={7} lg={5}>
           <div className="d-flex justify-center flex-column">
-            <Menu></Menu>
             <Image></Image>
           </div>
         </Col>

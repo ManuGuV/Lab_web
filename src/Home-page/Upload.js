@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import addFile from '../Actions/addFile';
 import Paper from '@material-ui/core/Paper';
 import MyDropZone from './Dropzone';
+import { Link } from 'react-router-dom';
 
  class Image extends React.Component {
 
@@ -22,23 +23,15 @@ import MyDropZone from './Dropzone';
     render() {
 
         return (
-            <div>
+            <div className={'pt-4 pb-4'}>
                 <Paper className="p-5">
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', paddingTop: '15px'}}>
                     <MyDropZone></MyDropZone>
                     <h2>Click the image to upload your file here!</h2>
                 </div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <FormGroup row>
-                    <FormControlLabel
-                        control={
-                        <Checkbox />
-                        }
-                        label="Want a password added to the file?"
-                    />
-                    </FormGroup>
                 </div>
-                <Button onClick={() => alert('File Shared')} variant="success" style = {{marginLeft: 'auto'}}>Share</Button>
+                <Link className="btn btn-success" variant="contained" to="/QR_not_user">Share</Link>
                 </Paper>
             </div>
         )
