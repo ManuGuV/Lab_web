@@ -1,8 +1,14 @@
 import React from 'react';
 import {Navbar, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { browserHistory } from "react-router";
+
 
  class NavBar extends React.Component {
+
+    /*goHome(){
+        browserHistory.push("../Home-page/Home")
+    }*/
 
     render() {
 
@@ -10,9 +16,7 @@ import { Link } from 'react-router-dom';
             <div>
                 <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Square It</Navbar.Brand>
-                    <Link className="btn btn-danger size-sm" style = {{marginLeft: '10px'}} to="/DeleteAccount">Delete Account</Link>
-                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: 'auto'}} to="/">Logout</Link>
-                    
+                    <Link className="btn" variant="outline-success" style = {{marginLeft: 'auto'}} to="/MyFiles">Back</Link>
                 </Navbar>
              </div>
         )
