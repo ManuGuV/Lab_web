@@ -44,6 +44,23 @@ function rootReducer(state = data, {type, payload}) {
             }
             console.log(state.userArr);
             return state;
+        case 'checkAcc':
+            console.log("Checando Login");
+            for(var i=0; i< state.userArr.length; i++)
+            {
+                
+                if(state.userArr[i].password == payload[1] && state.userArr[i].email == payload[0])
+                {
+                    alert("Login Correcto");
+                    break;
+                }
+                else {
+                    alert("Datos incorrectos");                    
+                    break;
+                }
+            }
+            console.log(state.userArr);
+            return state;
         case 'getGraph':
             console.log("Updating data for chart");
             state.countArr[0] = state.fileArr.filter(File => File.type == ".jpg" || File.type == ".png").length;
