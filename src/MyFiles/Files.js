@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,6 +13,7 @@ import { RadialChart } from 'react-vis';
 import deleteFile from '../Actions/deleteFile';
 import getGraph from '../Actions/getGraph';
 import { Link } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
 
 /*const root = {
   width: '100%',
@@ -27,7 +28,11 @@ const table = {
 class fileManager extends React.Component {
   constructor(props){
     super(props);
-  } 
+  }
+  
+  useEffect() {
+    Auth.currentAuthenticatedUser().then(user => console.log({user})).catch( error => console.log({error}));
+  }
   
   deleteFile(id) {
     this.props.deleteFile(id);
@@ -40,10 +45,9 @@ class fileManager extends React.Component {
   }
 
   render() {
-    
+    this.useEffect();
     this.files = this.props.state.fileArr;
     //this.getGraph();
-    console.log(this.props.state.countArr);
     
 
     return (

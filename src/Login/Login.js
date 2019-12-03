@@ -7,6 +7,8 @@ import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import checkAcc from '../Actions/checkAcc';
+import { withAuthenticator } from 'aws-amplify-react';
+import Files from '../MyFiles/Files';
 
 const loginCard = {
   position: 'absolute',
@@ -68,4 +70,6 @@ const mapDispatchToProps = {
   checkAcc
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withAuthenticator(Files, {includeGreetings: true}));
+
+//export default );
