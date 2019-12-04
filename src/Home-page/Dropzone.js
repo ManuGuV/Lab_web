@@ -23,7 +23,6 @@ class MyDropzone extends Component {
   addFile(droppedFile){
 
     var path = droppedFile[0].path;
-
     var type = "";
     var date = new Date;
     var afterDot = false;
@@ -52,12 +51,14 @@ class MyDropzone extends Component {
     return (
       <div>
       <Dropzone onDrop={async ([file]) => {
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var contents = e.target.result;
-    console.log(contents);
-  };
-  reader.readAsText(file);
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        var contents = e.target.result;
+        console.log(contents);
+        };
+        reader.readAsText(file);
+        console.log(reader);
+        this.addFile([file]);
 }}/*onDrop={files => {this.addFile(files)}}*/>
         {({ getRootProps, getInputProps }) => (
           <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', backgroundImage: 'URL("https://elementstark.com/woocommerce-extension-demos/wp-content/uploads/sites/2/2016/12/upload.png")', backgroundSize: '150px', height: '150px', width: '150px', margin: '0 auto', backgroundRepeat: 'no-repeat'}}>
