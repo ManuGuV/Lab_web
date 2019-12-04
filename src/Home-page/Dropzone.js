@@ -5,6 +5,8 @@ import { useDropzone } from 'react-dropzone';
 import { connect } from 'react-redux';
 import addFile from '../Actions/addFile';
 import Files from '../classes/Files';
+import QRCode from 'qrcode.react';
+import { timeout } from 'q';
 
 class MyDropzone extends Component {
   filename = null;
@@ -51,14 +53,22 @@ class MyDropzone extends Component {
     return (
       <div>
       <Dropzone onDrop={async ([file]) => {
+        
         var reader = new FileReader();
-        reader.onload = function(e) {
-        var contents = e.target.result;
-        console.log(contents);
-        };
+        //reader.readAsText(file);
+        console.log("File: "+file);
+        //var str = 
         reader.readAsText(file);
-        console.log(reader);
+        //console.log("Reader: "+reader);
+        reader.onload = function(e) {
+          var contents = e.target.result;
+          console.log(e.target.files);
+          //localStorage.setItem('reader', contents);
+        };
+        
+        
         this.addFile([file]);
+        
 }}/*onDrop={files => {this.addFile(files)}}*/>
         {({ getRootProps, getInputProps }) => (
           <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center', backgroundImage: 'URL("https://elementstark.com/woocommerce-extension-demos/wp-content/uploads/sites/2/2016/12/upload.png")', backgroundSize: '150px', height: '150px', width: '150px', margin: '0 auto', backgroundRepeat: 'no-repeat'}}>
