@@ -12,8 +12,7 @@ import {connect} from 'react-redux';
             <div>
                 <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Square It</Navbar.Brand>
-                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: 'auto'}} to="/Signup">Signup</Link>
-                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: '5px'}} to="/Login">Login</Link>
+                    <Link className="btn btn-outline-success" variant="outline-success" style = {{marginLeft: '5px'}} to="/MyFiles">My Files</Link>
                 </Navbar>
              </div>
         )

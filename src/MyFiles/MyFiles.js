@@ -2,16 +2,17 @@ import React from 'react';
 import NavBar from './Nav-bar';
 import Filter from './Filters';
 import Files from './Files';
+import { withAuthenticator } from 'aws-amplify-react';
 
 
 function MyFiles() {
   return (
     <div className="App">
       <NavBar></NavBar>
-      <Filter></Filter>
+      
       <Files></Files>
     </div>
   );
 }
 
-export default MyFiles;
+export default withAuthenticator(MyFiles, {includeGreetings: true});

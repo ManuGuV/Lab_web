@@ -31,7 +31,6 @@ import { Link } from 'react-router-dom';
                 </div>
                 <div className="d-flex flex-column" style={{justifyContent: 'center', alignItems: 'center'}}>
                 </div>
-                <Link className="btn btn-success" variant="contained" to="/QR_not_user">Share</Link>
                 </Paper>
             </div>
         )

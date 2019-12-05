@@ -5,6 +5,7 @@ import Image from './Upload';
 import DnD from './Dropzone';
 import {Row, Col} from 'react-bootstrap';
 import BackgroundImage from '../geometric.jpg';
+import { withAuthenticator } from 'aws-amplify-react';
 
 const pageStyle = {
   backgroundImage: `url(${BackgroundImage})`,
@@ -28,4 +29,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withAuthenticator(Home, {includeGreetings: true});
