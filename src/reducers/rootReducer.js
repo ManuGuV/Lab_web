@@ -27,7 +27,13 @@ function rootReducer(state = data, {type, payload}) {
             
             return state;
         case 'addFile':
-            state.fileArr.push(payload);
+            console.log(state.fileArr.filter(item => item.name === payload.name));
+            if (state.fileArr.filter(item => item.name === payload.name).length === 0) {
+                state.fileArr.push(payload);
+            }
+            
+            
+
             return state;
         case 'addUser':
             state.userArr.push(payload);
@@ -63,7 +69,6 @@ function rootReducer(state = data, {type, payload}) {
             state.countArr[2] = state.fileArr.filter(File => File.type == ".doc" || File.type == ".docx" || File.type == ".pdf").length;
             return state
         case 'setInitFiles':
-
             for (var i=0;i<payload.length;i++) {
                 var x = payload[i].key.split('.');
                 state.fileArr.push(new File(i, payload[i].key, '.'+x[1], String(payload[i].lastModified)));

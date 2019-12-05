@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import addFile from '../Actions/addFile';
 import Files from '../classes/Files';
 import { Storage } from 'aws-amplify';
-import { Button } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 import QRCode from 'qrcode.react';
 import { timeout } from 'q';
 import setInitFiles from '../Actions/setInitFiles';
@@ -22,6 +22,7 @@ class MyDropzone extends Component {
   }
 
   setInitFiles() {
+    this.props.state.fileArr = [];
     Storage.list('')
     .then(result => this.props.setInitFiles(result))
     .catch(err => console.log(err));
@@ -86,6 +87,7 @@ class MyDropzone extends Component {
     })
 
     this.addFile(this.fileAWS.path);
+    alert("File Uploaded!\nView your file in the My Files section");
   }
 
   render() {
