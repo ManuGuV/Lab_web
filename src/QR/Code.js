@@ -13,7 +13,7 @@ Amplify.configure(config);
     
     componentDidMount() {
         var currentFile = localStorage.getItem('currentFile');
-        Storage.get(currentFile).then(data => {
+        Storage.get(currentFile, { level: 'protected' }).then(data => {
             this.setState({fileURL:data});
             console.log("Data",data);
 

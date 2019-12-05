@@ -23,7 +23,7 @@ class MyDropzone extends Component {
 
   setInitFiles() {
     this.props.state.fileArr = [];
-    Storage.list('')
+    Storage.list('',{ level: 'protected' })
     .then(result => this.props.setInitFiles(result))
     .catch(err => console.log(err));
   
@@ -78,7 +78,10 @@ class MyDropzone extends Component {
     
   }
   saveFile = () => {
-    Storage.put(this.fileAWS.filename, this.fileAWS.file)
+    Storage.put(this.fileAWS.filename, this.fileAWS.file, {
+      level: 'protected',
+      contentType: 'text/plain'
+    })
     .then(() => {
         console.log("Successful save");
         this.fileAWS = { fileURL: '', file: '', filename: ''};
