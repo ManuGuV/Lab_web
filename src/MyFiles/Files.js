@@ -40,7 +40,7 @@ class fileManager extends React.Component {
   }
   
   deleteFile(id, name) {
-    Storage.remove(name)
+    Storage.remove(name, { level: 'protected' })
     .then(result => console.log(result))
     .catch(err => console.log(err));
     this.props.deleteFile(id);
